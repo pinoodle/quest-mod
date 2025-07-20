@@ -43,12 +43,11 @@ var naughtyFix = function() {
   }, 1);
 }
 
-var pine_zoom = 1.0; // Initial zoom level
+var pine_zoom = 1.6;
 
-var htmlElement = document.documentElement; // Select the <html> element
+var htmlElement = document.documentElement;
 
 function updateZoom() {
-    // Set the zoom CSS property to the current pine_zoom value
     htmlElement.style.zoom = pine_zoom;
 }
 
@@ -56,20 +55,20 @@ document.addEventListener('keydown', function(event) {
     if (event.ctrlKey) {
         // Detect '+' (plus) or '=' key
         if (event.which === 187 || event.which === 61) {
-            event.preventDefault(); // Prevent the default action
-            pine_zoom += 0.1; // Increase zoom level
+            event.preventDefault();
+            pine_zoom += 0.1;
             updateZoom();
         }
         // Detect '-' (minus) key
         else if (event.which === 189 || event.which === 173) {
-            event.preventDefault(); // Prevent the default action
-            pine_zoom = Math.max(0.1, pine_zoom - 0.1); // Decrease zoom level, but don't go below 0.1
+            event.preventDefault();
+            pine_zoom = Math.max(0.1, pine_zoom - 0.1);
             updateZoom();
         }
     }
 });
 
-
+document.addEventListener('DOMContentLoaded', updateZoom);
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function sendCommand(text, metadata) {

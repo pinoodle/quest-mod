@@ -11,6 +11,9 @@ body
     height: 100%;
     scrollbar-color: #757575 #000;
 }
+::-webkit-scrollbar {
+    display: none;
+}
 a.cmdlink
 {
     text-decoration: underline;
